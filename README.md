@@ -6,9 +6,9 @@
   <img src="https://img.shields.io/badge/Versiyon-1.0-orange" alt="Versiyon 1.0" />
   <img src="https://img.shields.io/badge/Güvenlik-Üst_Düzey-red" alt="Güvenlik" />
   <br />
-  <img src="https://img.shields.io/badge/GPT--4o-Desteklenir-blueviolet" alt="GPT-4o" />
-  <img src="https://img.shields.io/badge/Claude_3_Opus-Desteklenir-blueviolet" alt="Claude 3 Opus" />
-  <img src="https://img.shields.io/badge/Gemini_2.0-Desteklenir-blueviolet" alt="Gemini 2.0" />
+  <img src="https://img.shields.io/badge/GPT--4-5-Desteklenir-blueviolet" alt="GPT-4.5" />
+  <img src="https://img.shields.io/badge/Claude_3.7_Sonnet-Desteklenir-blueviolet" alt="Claude 3.7 Sonnet" />
+  <img src="https://img.shields.io/badge/o3_mini-Desteklenir-blueviolet" alt="o3 mini" />
 </div>
 
 <p align="center">
