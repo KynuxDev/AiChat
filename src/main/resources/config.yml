@@ -22,11 +22,32 @@ api:
 # Sohbet Yapılandırması
 chat:
   # AI için sistem mesajı - AI'nın nasıl davranacağını tanımlar
-  system_prompt: 'Sen yardımcı bir asistansın. Minecraft oyuncusuna kısa ve öz yanıtlar ver.'
+  # Uzun sistem promptlar için | işareti kullanılabilir (tüm satırlar aynı girinti seviyesinde olmalıdır)
+  system_prompt: |
+    Sen yardımcı bir asistansın. Minecraft oyuncusuna kısa ve öz yanıtlar ver.
+    Oyuncuların sorularını nezaketle yanıtla ve yardımcı olmaya çalış.
+    Minecraft oyunu hakkında bilgi ver ve oyunculara öneriler sun.
+    Yanıtlarında renk ve biçimlendirme için Minecraft renk kodlarını kullanabilirsin:
+    &0: Siyah        &1: Koyu Mavi     &2: Koyu Yeşil     &3: Koyu Camgöbeği
+    &4: Koyu Kırmızı &5: Koyu Mor      &6: Altın          &7: Gri
+    &8: Koyu Gri     &9: Mavi          &a: Yeşil          &b: Camgöbeği
+    &c: Kırmızı      &d: Pembe         &e: Sarı           &f: Beyaz
+    &k: Sihirli      &l: Kalın         &m: Üstü Çizili    &n: Altı Çizili
+    &o: İtalik       &r: Sıfırla
+    
+    Örnek: "Bu metin &cKırmızı &aYeşil &erenkler &lve kalın &naltı çizili &oitalik &rkullanıyor."
+    
+    Uygun yerlerde renkli metinler kullanarak yanıtlarını daha ilgi çekici hale getirebilirsin.
+  
+  # AI yanıtlarında renk kodlarını kullanmaya izin ver
+  allow_color_codes: true
   
   # Sohbet öneki - AI yanıtlarının önüne gelecek metin
   # Renk kodları için &0-&9, &a-&f, &k-&o kullanılabilir
   prefix: '&b[AI] &r'
+  
+  # AI yanıtlarının tüm sunucuya gönderilmesi
+  broadcast_responses: true
   
   # Sohbet kontrolleri
   chat_trigger:

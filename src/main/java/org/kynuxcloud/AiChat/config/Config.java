@@ -12,6 +12,8 @@ public class Config {
     private int maxTokens;
     private String systemPrompt;
     private String chatPrefix;
+    private boolean broadcastResponses;
+    private boolean allowColorCodes;
     private boolean chatTriggerEnabled;
     private String chatTriggerKeyword;
     
@@ -33,6 +35,8 @@ public class Config {
             
             systemPrompt = config.getString("chat.system_prompt", "Sen yardımcı bir asistansın.");
             chatPrefix = config.getString("chat.prefix", "&b[AI] &r");
+            broadcastResponses = config.getBoolean("chat.broadcast_responses", true);
+            allowColorCodes = config.getBoolean("chat.allow_color_codes", true);
             chatTriggerEnabled = config.getBoolean("chat.chat_trigger.enabled", true);
             chatTriggerKeyword = config.getString("chat.chat_trigger.keyword", "ai");
             
@@ -44,6 +48,8 @@ public class Config {
                 config.set("api.max_tokens", maxTokens);
                 config.set("chat.system_prompt", systemPrompt);
                 config.set("chat.prefix", chatPrefix);
+                config.set("chat.broadcast_responses", broadcastResponses);
+                config.set("chat.allow_color_codes", allowColorCodes);
                 config.set("chat.chat_trigger.enabled", chatTriggerEnabled);
                 config.set("chat.chat_trigger.keyword", chatTriggerKeyword);
                 plugin.saveConfig();
@@ -87,5 +93,13 @@ public class Config {
     
     public String getChatTriggerKeyword() {
         return chatTriggerKeyword;
+    }
+    
+    public boolean isBroadcastResponses() {
+        return broadcastResponses;
+    }
+    
+    public boolean isAllowColorCodes() {
+        return allowColorCodes;
     }
 }

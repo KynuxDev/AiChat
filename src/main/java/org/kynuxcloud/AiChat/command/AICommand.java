@@ -56,7 +56,7 @@ public class AICommand implements CommandExecutor, TabCompleter {
             if (subCommand.equals("reload") && sender.hasPermission("aichat.admin")) {
                 plugin.reloadConfig();
                 config.loadConfig();
-                sender.sendMessage(ChatColor.GREEN + "ChatService yapılandırması yeniden yüklendi.");
+                sender.sendMessage(ChatColor.GREEN + "AiChat yapılandırması yeniden yüklendi.");
                 return true;
             }
             
@@ -112,11 +112,24 @@ public class AICommand implements CommandExecutor, TabCompleter {
             new AIService.ResponseCallback() {
                 @Override
                 public void onSuccess(String response) {
-                    String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
-                        config.getChatPrefix() + response);
+                    String messageContent = response;
                     
-                    // Tüm sunucuya mesajı gönder
-                    Bukkit.broadcastMessage(formattedResponse);
+                    // Eğer renk kodları devre dışı bırakıldıysa, yanıttaki tüm renk kodlarını kaldır
+                    if (!config.isAllowColorCodes()) {
+                        messageContent = messageContent.replaceAll("&[0-9a-fk-or]", "");
+                    }
+                    
+                    // Prefix her zaman renk içerebilir
+                    String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
+                        config.getChatPrefix() + messageContent);
+                    
+                    if (config.isBroadcastResponses()) {
+                        // Tüm sunucuya mesajı gönder
+                        Bukkit.broadcastMessage(formattedResponse);
+                    } else {
+                        // Sadece komutu kullanan oyuncuya gönder
+                        player.sendMessage(formattedResponse);
+                    }
                 }
             },
             new AIService.ErrorCallback() {

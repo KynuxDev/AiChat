@@ -79,9 +79,24 @@ public final class AiChat extends JavaPlugin implements Listener {
                 player.getName(),
                 aiMessage,
                 response -> {
+                    String messageContent = response;
+                    
+                    // Eğer renk kodları devre dışı bırakıldıysa, yanıttaki tüm renk kodlarını kaldır
+                    if (!pluginConfig.isAllowColorCodes()) {
+                        messageContent = messageContent.replaceAll("&[0-9a-fk-or]", "");
+                    }
+                    
+                    // Prefix her zaman renk içerebilir
                     String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
-                        pluginConfig.getChatPrefix() + response);
-                    Bukkit.broadcastMessage(formattedResponse);
+                        pluginConfig.getChatPrefix() + messageContent);
+                    
+                    if (pluginConfig.isBroadcastResponses()) {
+                        // Tüm sunucuya mesajı gönder
+                        Bukkit.broadcastMessage(formattedResponse);
+                    } else {
+                        // Sadece komutu kullanan oyuncuya gönder
+                        player.sendMessage(formattedResponse);
+                    }
                 },
                 error -> {
                     player.sendMessage(ChatColor.RED + "AI Hatası: " + error);
@@ -113,8 +128,13 @@ public final class AiChat extends JavaPlugin implements Listener {
                             "  max_tokens: 500\n" +
                             "\n" +
                             "chat:\n" +
-                            "  system_prompt: 'Sen yardımcı bir asistansın.'\n" +
+                            "  system_prompt: |\n" +
+                            "    Sen yardımcı bir asistansın.\n" +
+                            "    Minecraft oyuncusuna kısa ve öz yanıtlar ver.\n" +
+                            "    Oyunculara yardımcı olmak için elinden geleni yap.\n" +
                             "  prefix: '&b[AI] &r'\n" +
+                            "  broadcast_responses: true\n" +
+                            "  allow_color_codes: true\n" +
                             "  chat_trigger:\n" +
                             "    enabled: true\n" +
                             "    keyword: 'ai'";
