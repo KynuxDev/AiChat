@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.kynuxcloud</groupId>
-    <artifactId>chatservice</artifactId>
+    <artifactId>aichat</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>chatservice</name>
+    <name>AiChat</name>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!-- OkHttp for HTTP requests -->

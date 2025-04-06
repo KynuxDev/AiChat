@@ -1,7 +1,7 @@
-name: ChatService
+name: AiChat
 version: '1.0'
-main: org.kynuxcloud.chatService.ChatService
-api-version: '1.20'
+main: org.kynuxcloud.AiChat.AiChat
+api-version: '1.16'
 load: STARTUP
 authors: [ Kynux ]
 website: https://kynux.cloud
@@ -10,9 +10,9 @@ commands:
   ai:
     description: Yapay zeka ile sohbet et
     usage: /ai <mesaj>
-    permission: chatservice.ai
+    permission: aichat.ai
     
 permissions:
-  chatservice.ai:
+  aichat.ai:
     description: Yapay zeka ile sohbet etme izni
     default: true

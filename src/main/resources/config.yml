@@ -27,6 +27,13 @@ chat:
   # Sohbet öneki - AI yanıtlarının önüne gelecek metin
   # Renk kodları için &0-&9, &a-&f, &k-&o kullanılabilir
   prefix: '&b[AI] &r'
+  
+  # Sohbet kontrolleri
+  chat_trigger:
+    # Sohbette "ai <mesaj>" yazarak AI ile konuşma özelliğini açar/kapatır
+    enabled: true
+    # Sohbette kullanılacak tetikleyici kelime (örn: "ai naber" yazdığınızda çalışır)
+    keyword: 'ai'
 
 # İzinler:
 # chatservice.ai - /ai komutunu kullanma izni, default olarak tüm oyunculara verilir
