@@ -1,5 +1,6 @@
 package org.kynuxcloud.AiChat.command;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -113,7 +114,9 @@ public class AICommand implements CommandExecutor, TabCompleter {
                 public void onSuccess(String response) {
                     String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
                         config.getChatPrefix() + response);
-                    player.sendMessage(formattedResponse);
+                    
+                    // Tüm sunucuya mesajı gönder
+                    Bukkit.broadcastMessage(formattedResponse);
                 }
             },
             new AIService.ErrorCallback() {

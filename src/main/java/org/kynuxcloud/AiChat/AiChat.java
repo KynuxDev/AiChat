@@ -1,5 +1,6 @@
 package org.kynuxcloud.AiChat;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -45,8 +46,10 @@ public final class AiChat extends JavaPlugin implements Listener {
     @Override
     public void reloadConfig() {
         super.reloadConfig();
-        pluginConfig.loadConfig();
-        getLogger().info("Yapılandırma yeniden yüklendi.");
+        if (pluginConfig != null) {
+            pluginConfig.loadConfig();
+            getLogger().info("Yapılandırma yeniden yüklendi.");
+        }
     }
     
     @EventHandler(priority = EventPriority.NORMAL)
@@ -78,7 +81,7 @@ public final class AiChat extends JavaPlugin implements Listener {
                 response -> {
                     String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
                         pluginConfig.getChatPrefix() + response);
-                    player.sendMessage(formattedResponse);
+                    Bukkit.broadcastMessage(formattedResponse);
                 },
                 error -> {
                     player.sendMessage(ChatColor.RED + "AI Hatası: " + error);

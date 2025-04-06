@@ -21,31 +21,35 @@ public class Config {
     }
     
     public void loadConfig() {
-        plugin.saveDefaultConfig();
-        FileConfiguration config = plugin.getConfig();
-        
-        apiUrl = config.getString("api.url", "http://api.kynux.cloud/api/v1/chat/completions");
-        apiKey = config.getString("api.key", "YOUR_API_KEY");
-        model = config.getString("api.model", "gpt-4o");
-        temperature = config.getDouble("api.temperature", 0.7);
-        maxTokens = config.getInt("api.max_tokens", 500);
-        
-        systemPrompt = config.getString("chat.system_prompt", "Sen yardımcı bir asistansın.");
-        chatPrefix = config.getString("chat.prefix", "&b[AI] &r");
-        chatTriggerEnabled = config.getBoolean("chat.chat_trigger.enabled", true);
-        chatTriggerKeyword = config.getString("chat.chat_trigger.keyword", "ai");
-        
-        if (!config.isSet("api.url")) {
-            config.set("api.url", apiUrl);
-            config.set("api.key", apiKey);
-            config.set("api.model", model);
-            config.set("api.temperature", temperature);
-            config.set("api.max_tokens", maxTokens);
-            config.set("chat.system_prompt", systemPrompt);
-            config.set("chat.prefix", chatPrefix);
-            config.set("chat.chat_trigger.enabled", chatTriggerEnabled);
-            config.set("chat.chat_trigger.keyword", chatTriggerKeyword);
-            plugin.saveConfig();
+        try {
+            plugin.saveDefaultConfig();
+            FileConfiguration config = plugin.getConfig();
+            
+            apiUrl = config.getString("api.url", "http://api.kynux.cloud/api/v1/chat/completions");
+            apiKey = config.getString("api.key", "YOUR_API_KEY");
+            model = config.getString("api.model", "gpt-4o");
+            temperature = config.getDouble("api.temperature", 0.7);
+            maxTokens = config.getInt("api.max_tokens", 500);
+            
+            systemPrompt = config.getString("chat.system_prompt", "Sen yardımcı bir asistansın.");
+            chatPrefix = config.getString("chat.prefix", "&b[AI] &r");
+            chatTriggerEnabled = config.getBoolean("chat.chat_trigger.enabled", true);
+            chatTriggerKeyword = config.getString("chat.chat_trigger.keyword", "ai");
+            
+            if (!config.isSet("api.url")) {
+                config.set("api.url", apiUrl);
+                config.set("api.key", apiKey);
+                config.set("api.model", model);
+                config.set("api.temperature", temperature);
+                config.set("api.max_tokens", maxTokens);
+                config.set("chat.system_prompt", systemPrompt);
+                config.set("chat.prefix", chatPrefix);
+                config.set("chat.chat_trigger.enabled", chatTriggerEnabled);
+                config.set("chat.chat_trigger.keyword", chatTriggerKeyword);
+                plugin.saveConfig();
+            }
+        } catch (Exception e) {
+            plugin.getLogger().severe("Yapılandırma yüklenirken hata oluştu: " + e.getMessage());
         }
     }
     
