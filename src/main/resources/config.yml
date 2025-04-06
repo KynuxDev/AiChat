@@ -1,0 +1,33 @@
+# ChatService Plugin Yapılandırması
+# Bu plugin, Minecraft sunucunuzda AI temelli sohbet özelliği sağlar.
+
+# API Yapılandırması
+api:
+  # API URL'i - Bu URL'i değiştirmeyin, özel bir gereksinim olmadığı sürece
+  url: 'http://api.kynux.cloud/api/v1/chat/completions'
+  
+  # API Anahtarı - Kendi API anahtarınızı buraya girin
+  key: 'YOUR_API_KEY'
+  
+  # Kullanılacak AI modeli - /ai models komutu ile mevcut modelleri listeleyebilirsiniz
+  model: 'gpt-4o'
+  
+  # 0 ile 1 arasında bir değer. Yüksek değerler daha yaratıcı ancak daha az tutarlı yanıtlar üretir.
+  # Düşük değerler daha tutarlı ancak daha az yaratıcı yanıtlar üretir.
+  temperature: 0.7
+  
+  # Her yanıt için maksimum token sayısı. Bu değer çok yüksekse, API çok uzun yanıtlar üretebilir.
+  max_tokens: 1000
+
+# Sohbet Yapılandırması
+chat:
+  # AI için sistem mesajı - AI'nın nasıl davranacağını tanımlar
+  system_prompt: 'Sen yardımcı bir asistansın. Minecraft oyuncusuna kısa ve öz yanıtlar ver.'
+  
+  # Sohbet öneki - AI yanıtlarının önüne gelecek metin
+  # Renk kodları için &0-&9, &a-&f, &k-&o kullanılabilir
+  prefix: '&b[AI] &r'
+
+# İzinler:
+# chatservice.ai - /ai komutunu kullanma izni, default olarak tüm oyunculara verilir
+# chatservice.admin - yönetici komutlarını kullanma izni (/ai reload, /ai models, /ai clearall)
