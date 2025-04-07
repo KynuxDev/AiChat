@@ -3,7 +3,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Minecraft-1.16.5%2B-brightgreen" alt="Minecraft 1.16.5+" />
   <img src="https://img.shields.io/badge/API-KynuxCloud-blue" alt="KynuxCloud API" />
-  <img src="https://img.shields.io/badge/Versiyon-1.0-orange" alt="Versiyon 1.0" />
+  <img src="https://img.shields.io/badge/Versiyon-1.1-orange" alt="Versiyon 1.1" />
   <img src="https://img.shields.io/badge/Güvenlik-Üst_Düzey-red" alt="Güvenlik" />
   <br />
   <img src="https://img.shields.io/badge/GPT--4--5-Desteklenir-blueviolet" alt="GPT-4.5" />
