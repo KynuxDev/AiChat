@@ -81,7 +81,7 @@ public class AIService {
                     Request request = new Request.Builder()
                             .url(config.getApiUrl())
                             .post(RequestBody.create(MediaType.parse("application/json"), jsonBody))
-                            .header("X-API-KEY", config.getApiKey())
+                            .header("X-API-Key", config.getApiKey())
                             .header("Content-Type", "application/json")
                             .build();
                     
