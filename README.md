@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/Versiyon-1.1-orange" alt="Versiyon 1.1" />
   <img src="https://img.shields.io/badge/Güvenlik-Üst_Düzey-red" alt="Güvenlik" />
   <br />
-  <img src="https://img.shields.io/badge/Grok-3-Mini-Desteklenir-blueviolet" alt="Grok-3-mini" />
+  <img src="https://img.shields.io/badge/Grok--3--Mini-Desteklenir-blueviolet" alt="Grok-3-mini" />
 </div>
 
 <p align="center">
