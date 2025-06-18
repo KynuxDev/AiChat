@@ -6,11 +6,8 @@ api:
   # API URL'i - Bu URL'i değiştirmeyin, özel bir gereksinim olmadığı sürece
   url: 'http://ai.kynux.cloud/api/v1/chat/completions'
   
-  # API Anahtarı - Kendi API anahtarınızı buraya girin
-  key: 'YOUR_API_KEY'
-  
   # Kullanılacak AI modeli - /ai models komutu ile mevcut modelleri listeleyebilirsiniz
-  model: 'gpt-4o'
+  model: 'grok-3-mini'
   
   # 0 ile 1 arasında bir değer. Yüksek değerler daha yaratıcı ancak daha az tutarlı yanıtlar üretir.
   # Düşük değerler daha tutarlı ancak daha az yaratıcı yanıtlar üretir.
