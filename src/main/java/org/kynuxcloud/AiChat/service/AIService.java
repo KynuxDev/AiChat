@@ -190,7 +190,7 @@ public class AIService {
             public void run() {
                 try {
                     Request request = new Request.Builder()
-                            .url("http://api.kynux.cloud/api/v1/models")
+                            .url("http://ai.kynux.cloud/api/v1/models")
                             .get()
                             .header("Authorization", "Bearer " + config.getApiKey())
                             .build();
