@@ -34,17 +34,6 @@
 
 AiChat eklentisi, Minecraft sunucunuzda oyuncuların gelişmiş yapay zeka modelleriyle anlık olarak iletişim kurmasını sağlar. KynuxCloud'un güçlü yapay zeka API altyapısını kullanarak, en gelişmiş dil modellerine erişim sağlar ve oyuncularınıza benzersiz bir deneyim sunar.
 
-### KynuxCloud Yapay Zeka Platformu Hakkında
-
-KynuxCloud, çeşitli yapay zeka modellerini tek bir API altında toplayan, yüksek performanslı ve güvenli bir platformdur. AiChat eklentisi, bu platform sayesinde:
-
-- **OpenAI'ın** GPT-4o, GPT-4, GPT-4 Turbo modellerine
-- **Anthropic'in** Claude 3 Opus, Claude 3.5 Sonnet, Claude 3 Haiku, Claude 3.7 Sonnet modellerine
-- **Google'ın** Gemini 2.0 Pro, Gemini 2.0 Flash modellerine
-- **Cohere'in** Command R, Command R Plus modellerine
-
-ve daha fazlasına erişim sağlar.
-
 ## ✨ Temel Özellikler
 
 ### 💬 Sohbet Entegrasyonu
