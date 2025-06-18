@@ -27,9 +27,9 @@ public class Config {
             plugin.saveDefaultConfig();
             FileConfiguration config = plugin.getConfig();
             
-            apiUrl = config.getString("api.url", "http://api.kynux.cloud/api/v1/chat/completions");
+            apiUrl = config.getString("api.url", "http://ai.kynux.cloud/api/v1/chat/completions");
             apiKey = config.getString("api.key", "YOUR_API_KEY");
-            model = config.getString("api.model", "gpt-4o");
+            model = config.getString("api.model", "grok-3-mini");
             temperature = config.getDouble("api.temperature", 0.7);
             maxTokens = config.getInt("api.max_tokens", 500);
             
