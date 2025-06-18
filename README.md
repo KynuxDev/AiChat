@@ -1,4 +1,4 @@
-# 🤖 Minecraft AI Chat Eklentisi | KynuxCloud Entegrasyonu
+# 🤖 Minecraft AI Chat Eklentisi | Lora Project Entegrasyonu
 
 <div align="center">
   <img src="https://img.shields.io/badge/Minecraft-1.16.5%2B-brightgreen" alt="Minecraft 1.16.5+" />
@@ -32,7 +32,7 @@
 
 ## 🌟 Genel Bakış
 
-AiChat eklentisi, Minecraft sunucunuzda oyuncuların gelişmiş yapay zeka modelleriyle anlık olarak iletişim kurmasını sağlar. KynuxCloud'un güçlü yapay zeka API altyapısını kullanarak, en gelişmiş dil modellerine erişim sağlar ve oyuncularınıza benzersiz bir deneyim sunar.
+AiChat eklentisi, Minecraft sunucunuzda oyuncuların gelişmiş yapay zeka modelleriyle anlık olarak iletişim kurmasını sağlar. Lora Project'un güçlü yapay zeka API altyapısını kullanarak, en gelişmiş dil modellerine erişim sağlar ve oyuncularınıza benzersiz bir deneyim sunar.
 
 ## ✨ Temel Özellikler
 
@@ -61,7 +61,7 @@ AiChat eklentisi, Minecraft sunucunuzda oyuncuların gelişmiş yapay zeka model
 2. JAR dosyasını sunucunuzun `plugins` klasörüne yükleyin
 3. Sunucuyu yeniden başlatın veya `/reload` komutunu çalıştırın
 4. İlk çalıştırmadan sonra oluşturulan `/plugins/AiChat/config.yml` dosyasını düzenleyin
-5. KynuxCloud API anahtarınızı config.yml'deki `api.key` alanına ekleyin
+5. Lora Project API anahtarınızı config.yml'deki `api.key` alanına ekleyin
 6. `/ai reload` komutu ile yapılandırmayı yeniden yükleyin
 
 ### API Anahtarı Alma
@@ -77,7 +77,7 @@ AiChat eklentisi, kapsamlı ve detaylı bir yapılandırma dosyası (`config.yml
 ```yaml
 # API Yapılandırması
 api:
-  url: 'http://api.kynux.cloud/api/v1/chat/completions'
+  url: 'http://ai.kynux.cloud/api/v1/chat/completions'
   key: 'YOUR_API_KEY'  # KynuxCloud API anahtarınız
   model: 'gpt-4o'      # Tercih ettiğiniz model
   temperature: 0.7     # Yaratıcılık seviyesi (0.0-1.0)
@@ -97,8 +97,8 @@ chat:
 ### Yapılandırma Seçenekleri Açıklaması
 
 #### API Yapılandırması
-- **url**: KynuxCloud API endpoint'i (değiştirmeyin)
-- **key**: KynuxCloud API anahtarınız
+- **url**: Lora Project API endpoint'i (değiştirmeyin)
+- **key**: Lora Project API anahtarınız
 - **model**: Kullanılacak AI modeli (güncel liste için `/ai models` komutunu kullanın)
 - **temperature**: AI yanıtlarının yaratıcılık/rastgelelik seviyesi
   - 0.0: Çok tutarlı, deterministik yanıtlar
@@ -198,7 +198,7 @@ AiChat eklentisi, sunucu performansını en üst düzeyde tutmak için tasarlanm
 - API anahtarınızı düzenli olarak değiştirin
 
 ### Veri Güvenliği
-- Oyuncu konuşmaları KynuxCloud'un güvenli altyapısında işlenir
+- Oyuncu konuşmaları Lora Project'un güvenli altyapısında işlenir
 - Hassas bilgiler şifrelenir ve güvenli bir şekilde iletilir
 - Tüm veri aktarımları modern güvenlik protokolleri kullanılarak gerçekleştirilir
 
@@ -208,7 +208,7 @@ AiChat eklentisi, sunucu performansını en üst düzeyde tutmak için tasarlanm
 Hayır. AiChat, tüm API isteklerini asenkron olarak işler ve ana sunucu thread'ini engellemez. Oyuncular AI ile konuşurken bile sunucunuz tam performansla çalışmaya devam eder.
 
 ### AI yanıtları ne kadar hızlı gelir?
-Yanıt süresi, seçilen modele ve KynuxCloud API'nin yoğunluğuna bağlıdır. Genellikle yanıtlar 1-3 saniye içinde gelir. Daha hızlı yanıtlar için `gpt-4o` veya `claude-3-haiku` gibi daha hızlı modelleri tercih edebilirsiniz.
+Yanıt süresi, seçilen modele ve Lora Project API'nin yoğunluğuna bağlıdır. Genellikle yanıtlar 1-3 saniye içinde gelir. Daha hızlı yanıtlar için `grok-3-mini` veya `claude-3-haiku` gibi daha hızlı modelleri tercih edebilirsiniz.
 
 ### Konuşma geçmişi nerede saklanır?
 Konuşma geçmişi, bellekte (RAM) tutulur ve sunucu kapatıldığında silinir. Kalıcı depolama yapılmaz. Bu, hem performans hem de gizlilik açısından avantaj sağlar.
@@ -221,18 +221,18 @@ Her model farklı özelliklere, uzmanlık alanlarına ve yanıt stillerine sahip
 
 ## 📘 API Entegrasyonu
 
-AiChat, KynuxCloud API'sini kullanır ve aşağıdaki endpoint'lere erişir:
+AiChat, LoraProject API'sini kullanır ve aşağıdaki endpoint'lere erişir:
 
-- **Chat Tamamlama**: `http://api.kynux.cloud/api/v1/chat/completions`
-- **Model Listesi**: `http://api.kynux.cloud/api/v1/models`
+- **Chat Tamamlama**: `http://ai.kynux.cloud/api/v1/chat/completions`
+- **Model Listesi**: `http://ai.kynux.cloud/api/v1/models`
 
-API dokümantasyonu için [api.kynux.cloud/api-docs](http://api.kynux.cloud/api-docs) adresini ziyaret edebilirsiniz.
+API dokümantasyonu için [api.kynux.cloud/api-docs](http://ai.kynux.cloud/api-docs) adresini ziyaret edebilirsiniz.
 
 ### API Örnek İsteği
 
 ```json
 {
-  "model": "gpt-4o",
+  "model": "grok-3-mini",
   "messages": [
     {"role": "system", "content": "Sen yardımcı bir asistansın."},
     {"role": "user", "content": "Merhaba, nasılsın?"}
@@ -289,6 +289,7 @@ AiChat ekibi sürekli olarak yeni özellikler geliştirmektedir. Yakında gelmes
 
 AiChat eklentisi ve KynuxCloud hizmetleri hakkında destek almak için:
 
+- **Discord**: [Lora Project](https://discord.gg/Cgz29e3Fu3) 
 - **Discord**: [KynuxCloud Discord Sunucusu](https://discord.gg/wCK5dVSY2n)
 - **Website**: [kynux.cloud](https://kynux.cloud)
 
