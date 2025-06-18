@@ -4,7 +4,7 @@
 # API Yapılandırması
 api:
   # API URL'i - Bu URL'i değiştirmeyin, özel bir gereksinim olmadığı sürece
-  url: 'http://api.kynux.cloud/api/v1/chat/completions'
+  url: 'http://ai.kynux.cloud/api/v1/chat/completions'
   
   # API Anahtarı - Kendi API anahtarınızı buraya girin
   key: 'YOUR_API_KEY'
