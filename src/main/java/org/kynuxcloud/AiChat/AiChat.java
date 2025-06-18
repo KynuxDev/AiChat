@@ -121,7 +121,7 @@ public final class AiChat extends JavaPlugin implements Listener {
                     getLogger().info("Varsayılan yapılandırma dosyası oluşturuldu.");
                 } else {
                     String defaultConfig = "api:\n" +
-                            "  url: 'http://api.kynux.cloud/api/v1/chat/completions'\n" +
+                            "  url: 'http://ai.kynux.cloud/api/v1/chat/completions'\n" +
                             "  key: 'YOUR_API_KEY'\n" +
                             "  model: 'gpt-4o'\n" +
                             "  temperature: 0.7\n" +
