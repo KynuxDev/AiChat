@@ -1,6 +1,7 @@
 package org.kynuxcloud.AiChat;
 
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -33,8 +34,10 @@ public final class AiChat extends JavaPlugin implements Listener {
         getCommand("ai").setExecutor(new AICommand(this, pluginConfig, aiService));
         
         getServer().getPluginManager().registerEvents(this, this);
-        int pluginId = 26214;
-        Metrics metrics = new Metrics(this, pluginId);
+        
+        // Modern bStats setup with custom charts
+        setupMetrics();
+        
         getLogger().info("AiChat Aktif! API: " + pluginConfig.getApiUrl());
         getLogger().info("Kullanılan Model: " + pluginConfig.getModel());
         getLogger().info("Sohbet Tetikleyicisi: " + (pluginConfig.isChatTriggerEnabled() ? "Aktif (" + pluginConfig.getChatTriggerKeyword() + ")" : "Devre Dışı"));
@@ -108,6 +111,57 @@ public final class AiChat extends JavaPlugin implements Listener {
         }
     }
     
+    /**
+     * Modern bStats setup with custom charts
+     */
+    private void setupMetrics() {
+        int pluginId = 26214; // Your plugin ID from bStats
+        Metrics metrics = new Metrics(this, pluginId);
+        
+        // Custom chart for AI model usage
+        metrics.addCustomChart(new SimplePie("used_ai_model", () -> {
+            return pluginConfig.getModel();
+        }));
+        
+        // Custom chart for chat trigger status
+        metrics.addCustomChart(new SimplePie("chat_trigger_enabled", () -> {
+            return pluginConfig.isChatTriggerEnabled() ? "Enabled" : "Disabled";
+        }));
+        
+        // Custom chart for broadcast mode
+        metrics.addCustomChart(new SimplePie("broadcast_mode", () -> {
+            return pluginConfig.isBroadcastResponses() ? "Broadcast" : "Private";
+        }));
+        
+        // Custom chart for color codes support
+        metrics.addCustomChart(new SimplePie("color_codes_enabled", () -> {
+            return pluginConfig.isAllowColorCodes() ? "Enabled" : "Disabled";
+        }));
+        
+        // Custom chart for server player count ranges
+        metrics.addCustomChart(new SimplePie("player_count", () -> {
+            int playerCount = Bukkit.getOnlinePlayers().size();
+            if (playerCount <= 10) {
+                return "1-10";
+            } else if (playerCount <= 25) {
+                return "11-25";
+            } else if (playerCount <= 50) {
+                return "26-50";
+            } else if (playerCount <= 100) {
+                return "51-100";
+            } else {
+                return "100+";
+            }
+        }));
+        
+        // Custom chart for chat trigger keyword
+        metrics.addCustomChart(new SimplePie("trigger_keyword", () -> {
+            return pluginConfig.getChatTriggerKeyword().toLowerCase();
+        }));
+        
+        getLogger().info("bStats metrics initialized successfully!");
+    }
+
     @Override
     public void saveDefaultConfig() {
         if (!getDataFolder().exists()) {
