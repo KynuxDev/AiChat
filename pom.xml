@@ -45,10 +45,31 @@
                             <shadedPattern>org.kynuxcloud.AiChat.okhttp3</shadedPattern>
                         </relocation>
                         <relocation>
+                            <pattern>okio</pattern>
+                            <shadedPattern>org.kynuxcloud.AiChat.okio</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>kotlin</pattern>
+                            <shadedPattern>org.kynuxcloud.AiChat.kotlin</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>com.fasterxml.jackson</pattern>
                             <shadedPattern>org.kynuxcloud.AiChat.jackson</shadedPattern>
                         </relocation>
                     </relocations>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                                <exclude>META-INF/MANIFEST.MF</exclude>
+                                <exclude>module-info.class</exclude>
+                                <exclude>META-INF/versions/*/module-info.class</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
                 </configuration>
                 <executions>
                     <execution>
@@ -96,7 +117,7 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>4.12.0</version>
+            <version>4.9.3</version>
         </dependency>
         <!-- Jackson for JSON processing -->
         <dependency>
