@@ -6,7 +6,7 @@ api:
   # API URL'i - Bu URL'i değiştirmeyin, özel bir gereksinim olmadığı sürece
   url: 'http://ai.kynux.cloud/v1/chat/completions'
   
-  key: "YOUR_MODEL_KEY"
+  key: "sk-c2dfa81d4b950eadba1ce55273e3d96830962fa1502cebdb987d04f4a8b9dd0b"
 
   # Kullanılacak AI modeli - /ai models komutu ile mevcut modelleri listeleyebilirsiniz
   model: 'grok-3-mini'
