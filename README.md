@@ -54,22 +54,6 @@ AiChat eklentisi, Minecraft sunucunuzda oyuncuların gelişmiş yapay zeka model
 - **Konuşma Geçmişi Yönetimi**: Bireysel veya toplu konuşma geçmişi temizleme
 - **Model Listesi**: Kullanılabilir güncel modelleri görüntüleme
 
-## 🔧 Kurulum
-
-### Hızlı Kurulum
-1. [En son sürümü](https://kynux.cloud/download/aichat.jar) indirin
-2. JAR dosyasını sunucunuzun `plugins` klasörüne yükleyin
-3. Sunucuyu yeniden başlatın veya `/reload` komutunu çalıştırın
-4. İlk çalıştırmadan sonra oluşturulan `/plugins/AiChat/config.yml` dosyasını düzenleyin
-5. Lora Project API anahtarınızı config.yml'deki `api.key` alanına ekleyin
-6. `/ai reload` komutu ile yapılandırmayı yeniden yükleyin
-
-### API Anahtarı Alma
-1. [KynuxCloud](https://kynux.cloud) websitesine kaydolun
-2. Kontrol panelinde "API Anahtarları" bölümüne gidin
-3. "Yeni API Anahtarı Oluştur" butonuna tıklayın
-4. Oluşturulan anahtarı kopyalayın ve config.yml dosyanıza ekleyin
-
 ## ⚙️ Yapılandırma
 
 AiChat eklentisi, kapsamlı ve detaylı bir yapılandırma dosyası (`config.yml`) sunar:
