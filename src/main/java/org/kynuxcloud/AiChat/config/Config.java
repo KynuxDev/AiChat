@@ -25,37 +25,32 @@ public class Config {
     public void loadConfig() {
         try {
             plugin.saveDefaultConfig();
+            plugin.reloadConfig(); // Config dosyasını fresh olarak yükle
             FileConfiguration config = plugin.getConfig();
             
-            apiUrl = config.getString("api.url", "http://ai.kynux.cloud/v1/chat/completions");
-            apiKey = config.getString("api.key", "YOUR_API_KEY");
+            // Config değerlerini doğrudan oku - default değerler config.yml'deki değerler olmalı
+            apiUrl = config.getString("api.url", "https://ai.kynux.cloud/v1/chat/completions");
+            apiKey = config.getString("api.key", "sk-c2dfa81d4b950eadba1ce55273e3d96830962fa1502cebdb987d04f4a8b9dd0b");
             model = config.getString("api.model", "grok-3-mini");
             temperature = config.getDouble("api.temperature", 0.7);
-            maxTokens = config.getInt("api.max_tokens", 500);
+            maxTokens = config.getInt("api.max_tokens", 1000);
             
-            systemPrompt = config.getString("chat.system_prompt", "Sen yardımcı bir asistansın.");
-            chatPrefix = config.getString("chat.prefix", "&b[AI] &r");
+            systemPrompt = config.getString("chat.system_prompt", "Adın Kynuxai ve Sen yardımcı bir asistansın. Minecraft oyuncusuna kısa ve öz yanıtlar ver.");
+            chatPrefix = config.getString("chat.prefix", "&b[KynuxAi] &r");
             broadcastResponses = config.getBoolean("chat.broadcast_responses", true);
             allowColorCodes = config.getBoolean("chat.allow_color_codes", true);
             chatTriggerEnabled = config.getBoolean("chat.chat_trigger.enabled", true);
-            chatTriggerKeyword = config.getString("chat.chat_trigger.keyword", "ai");
+            chatTriggerKeyword = config.getString("chat.chat_trigger.keyword", "kynuxai");
             
-            if (!config.isSet("api.url")) {
-                config.set("api.url", apiUrl);
-                config.set("api.key", apiKey);
-                config.set("api.model", model);
-                config.set("api.temperature", temperature);
-                config.set("api.max_tokens", maxTokens);
-                config.set("chat.system_prompt", systemPrompt);
-                config.set("chat.prefix", chatPrefix);
-                config.set("chat.broadcast_responses", broadcastResponses);
-                config.set("chat.allow_color_codes", allowColorCodes);
-                config.set("chat.chat_trigger.enabled", chatTriggerEnabled);
-                config.set("chat.chat_trigger.keyword", chatTriggerKeyword);
-                plugin.saveConfig();
-            }
+            plugin.getLogger().info("Config yüklendi:");
+            plugin.getLogger().info("- Keyword: " + chatTriggerKeyword);
+            plugin.getLogger().info("- Prefix: " + chatPrefix);
+            plugin.getLogger().info("- API URL: " + apiUrl);
+            plugin.getLogger().info("- Model: " + model);
+            
         } catch (Exception e) {
             plugin.getLogger().severe("Yapılandırma yüklenirken hata oluştu: " + e.getMessage());
+            e.printStackTrace();
         }
     }
     

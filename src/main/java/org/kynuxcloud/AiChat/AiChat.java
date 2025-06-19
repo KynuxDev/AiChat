@@ -50,7 +50,11 @@ public final class AiChat extends JavaPlugin implements Listener {
         super.reloadConfig();
         if (pluginConfig != null) {
             pluginConfig.loadConfig();
+            // AIService'i yeni config ile yeniden oluştur
+            aiService = new AIService(this, pluginConfig);
             getLogger().info("Yapılandırma yeniden yüklendi.");
+            getLogger().info("Kullanılan Model: " + pluginConfig.getModel());
+            getLogger().info("Sohbet Tetikleyicisi: " + (pluginConfig.isChatTriggerEnabled() ? "Aktif (" + pluginConfig.getChatTriggerKeyword() + ")" : "Devre Dışı"));
         }
     }
     
@@ -119,9 +123,9 @@ public final class AiChat extends JavaPlugin implements Listener {
                     getLogger().info("Varsayılan yapılandırma dosyası oluşturuldu.");
                 } else {
                     String defaultConfig = "api:\n" +
-                            "  url: 'http://ai.kynux.cloud/api/v1/chat/completions'\n" +
-                            "  key: 'YOUR_API_KEY'\n" +
-                            "  model: 'gpt-4o'\n" +
+                            "  url: 'https://ai.kynux.cloud/v1/chat/completions'\n" +
+                            "  key: 'sk-c2dfa81d4b950eadba1ce55273e3d96830962fa1502cebdb987d04f4a8b9dd0b'\n" +
+                            "  model: 'grok-3-mini'\n" +
                             "  temperature: 0.7\n" +
                             "  max_tokens: 500\n" +
                             "\n" +

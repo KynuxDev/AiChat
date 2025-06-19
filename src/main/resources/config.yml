@@ -4,7 +4,7 @@
 # API Yapılandırması
 api:
   # API URL'i - Bu URL'i değiştirmeyin, özel bir gereksinim olmadığı sürece
-  url: 'http://ai.kynux.cloud/v1/chat/completions'
+  url: 'https://ai.kynux.cloud/v1/chat/completions'
   
   key: "sk-c2dfa81d4b950eadba1ce55273e3d96830962fa1502cebdb987d04f4a8b9dd0b"
 
@@ -23,7 +23,7 @@ chat:
   # AI için sistem mesajı - AI'nın nasıl davranacağını tanımlar
   # Uzun sistem promptlar için | işareti kullanılabilir (tüm satırlar aynı girinti seviyesinde olmalıdır)
   system_prompt: |
-    Sen yardımcı bir asistansın. Minecraft oyuncusuna kısa ve öz yanıtlar ver.
+    Adın Kynuxai ve Sen yardımcı bir asistansın. Minecraft oyuncusuna kısa ve öz yanıtlar ver.
     Oyuncuların sorularını nezaketle yanıtla ve yardımcı olmaya çalış.
     Minecraft oyunu hakkında bilgi ver ve oyunculara öneriler sun.
     Yanıtlarında renk ve biçimlendirme için Minecraft renk kodlarını kullanabilirsin:
@@ -43,7 +43,7 @@ chat:
   
   # Sohbet öneki - AI yanıtlarının önüne gelecek metin
   # Renk kodları için &0-&9, &a-&f, &k-&o kullanılabilir
-  prefix: '&b[AI] &r'
+  prefix: '&b[KynuxAi] &r'
   
   # AI yanıtlarının tüm sunucuya gönderilmesi
   broadcast_responses: true
@@ -53,7 +53,7 @@ chat:
     # Sohbette "ai <mesaj>" yazarak AI ile konuşma özelliğini açar/kapatır
     enabled: true
     # Sohbette kullanılacak tetikleyici kelime (örn: "ai naber" yazdığınızda çalışır)
-    keyword: 'ai'
+    keyword: 'kynuxai'
 
 # İzinler:
 # chatservice.ai - /ai komutunu kullanma izni, default olarak tüm oyunculara verilir

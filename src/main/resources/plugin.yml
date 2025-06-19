@@ -9,10 +9,13 @@ website: https://kynux.cloud
 commands:
   ai:
     description: Yapay zeka ile sohbet et
-    usage: /ai <mesaj>
+    usage: /ai <mesaj> | /ai clear | /ai reload | /ai models
     permission: aichat.ai
     
 permissions:
   aichat.ai:
     description: Yapay zeka ile sohbet etme izni
     default: true
+  aichat.admin:
+    description: AiChat yönetici komutları (reload, models, clearall)
+    default: op

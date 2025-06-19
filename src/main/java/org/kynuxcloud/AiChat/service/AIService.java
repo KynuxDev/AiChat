@@ -189,8 +189,11 @@ public class AIService {
             @Override
             public void run() {
                 try {
+                    // Models endpoint'i için API URL'ini base URL'e çevir
+                    String modelsUrl = config.getApiUrl().replace("/v1/chat/completions", "/api/v1/models");
+                    
                     Request request = new Request.Builder()
-                            .url("http://ai.kynux.cloud/api/v1/models")
+                            .url(modelsUrl)
                             .get()
                             .header("Authorization", "Bearer " + config.getApiKey())
                             .build();
