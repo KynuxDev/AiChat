@@ -1,5 +1,6 @@
 package org.kynuxcloud.AiChat;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -32,7 +33,8 @@ public final class AiChat extends JavaPlugin implements Listener {
         getCommand("ai").setExecutor(new AICommand(this, pluginConfig, aiService));
         
         getServer().getPluginManager().registerEvents(this, this);
-        
+        int pluginId = 26214;
+        Metrics metrics = new Metrics(this, pluginId);
         getLogger().info("AiChat Aktif! API: " + pluginConfig.getApiUrl());
         getLogger().info("Kullanılan Model: " + pluginConfig.getModel());
         getLogger().info("Sohbet Tetikleyicisi: " + (pluginConfig.isChatTriggerEnabled() ? "Aktif (" + pluginConfig.getChatTriggerKeyword() + ")" : "Devre Dışı"));
