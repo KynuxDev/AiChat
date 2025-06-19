@@ -114,20 +114,16 @@ public class AICommand implements CommandExecutor, TabCompleter {
                 public void onSuccess(String response) {
                     String messageContent = response;
                     
-                    // Eğer renk kodları devre dışı bırakıldıysa, yanıttaki tüm renk kodlarını kaldır
                     if (!config.isAllowColorCodes()) {
                         messageContent = messageContent.replaceAll("&[0-9a-fk-or]", "");
                     }
                     
-                    // Prefix her zaman renk içerebilir
-                    String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
+                    String formattedResponse = ChatColor.translateAlternateColorCodes('&',
                         config.getChatPrefix() + messageContent);
                     
                     if (config.isBroadcastResponses()) {
-                        // Tüm sunucuya mesajı gönder
                         Bukkit.broadcastMessage(formattedResponse);
                     } else {
-                        // Sadece komutu kullanan oyuncuya gönder
                         player.sendMessage(formattedResponse);
                     }
                 }

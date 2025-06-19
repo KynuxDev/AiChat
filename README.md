@@ -79,7 +79,7 @@ AiChat eklentisi, kapsamlı ve detaylı bir yapılandırma dosyası (`config.yml
 api:
   url: 'http://ai.kynux.cloud/api/v1/chat/completions'
   key: 'YOUR_API_KEY'  # KynuxCloud API anahtarınız
-  model: 'gpt-4o'      # Tercih ettiğiniz model
+  model: 'grok-3-mini'      # Tercih ettiğiniz model
   temperature: 0.7     # Yaratıcılık seviyesi (0.0-1.0)
   max_tokens: 1000     # Maksimum yanıt uzunluğu
 
@@ -207,9 +207,6 @@ AiChat eklentisi, sunucu performansını en üst düzeyde tutmak için tasarlanm
 ### Eklenti sunucu performansımı etkiler mi?
 Hayır. AiChat, tüm API isteklerini asenkron olarak işler ve ana sunucu thread'ini engellemez. Oyuncular AI ile konuşurken bile sunucunuz tam performansla çalışmaya devam eder.
 
-### AI yanıtları ne kadar hızlı gelir?
-Yanıt süresi, seçilen modele ve Lora Project API'nin yoğunluğuna bağlıdır. Genellikle yanıtlar 1-3 saniye içinde gelir. Daha hızlı yanıtlar için `grok-3-mini` veya `claude-3-haiku` gibi daha hızlı modelleri tercih edebilirsiniz.
-
 ### Konuşma geçmişi nerede saklanır?
 Konuşma geçmişi, bellekte (RAM) tutulur ve sunucu kapatıldığında silinir. Kalıcı depolama yapılmaz. Bu, hem performans hem de gizlilik açısından avantaj sağlar.
 
@@ -218,29 +215,6 @@ Minecraft sohbet mesajlarının sınırı 256 karakterdir. AiChat, uzun AI yanı
 
 ### Promethium, Claude ve diğer modeller arasında ne fark var?
 Her model farklı özelliklere, uzmanlık alanlarına ve yanıt stillerine sahiptir. Örneğin, Claude modelleri daha yaratıcı ve akıcı yanıtlar verirken, GPT modelleri teknik konularda daha başarılıdır. `/ai models` komutu ile tüm modelleri görebilir ve ihtiyacınıza en uygun modeli seçebilirsiniz.
-
-## 📘 API Entegrasyonu
-
-AiChat, LoraProject API'sini kullanır ve aşağıdaki endpoint'lere erişir:
-
-- **Chat Tamamlama**: `http://ai.kynux.cloud/api/v1/chat/completions`
-- **Model Listesi**: `http://ai.kynux.cloud/api/v1/models`
-
-API dokümantasyonu için [api.kynux.cloud/api-docs](http://ai.kynux.cloud/api-docs) adresini ziyaret edebilirsiniz.
-
-### API Örnek İsteği
-
-```json
-{
-  "model": "grok-3-mini",
-  "messages": [
-    {"role": "system", "content": "Sen yardımcı bir asistansın."},
-    {"role": "user", "content": "Merhaba, nasılsın?"}
-  ],
-  "temperature": 0.7,
-  "max_tokens": 500
-}
-```
 
 ## 🛠️ Geliştirici Bilgileri
 
@@ -289,8 +263,8 @@ AiChat ekibi sürekli olarak yeni özellikler geliştirmektedir. Yakında gelmes
 
 AiChat eklentisi ve KynuxCloud hizmetleri hakkında destek almak için:
 
-- **Discord**: [Lora Project](https://discord.gg/Cgz29e3Fu3) 
-- **Discord**: [KynuxCloud Discord Sunucusu](https://discord.gg/wCK5dVSY2n)
+- **Discord (LoraProject)**: [Lora Project](https://discord.gg/Cgz29e3Fu3) 
+- **Discord (KynuxCloud)**: [KynuxCloud Discord Sunucusu](https://discord.gg/wCK5dVSY2n)
 - **Website**: [kynux.cloud](https://kynux.cloud)
 
 ---

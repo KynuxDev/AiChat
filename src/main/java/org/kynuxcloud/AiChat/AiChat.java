@@ -81,20 +81,16 @@ public final class AiChat extends JavaPlugin implements Listener {
                 response -> {
                     String messageContent = response;
                     
-                    // Eğer renk kodları devre dışı bırakıldıysa, yanıttaki tüm renk kodlarını kaldır
                     if (!pluginConfig.isAllowColorCodes()) {
                         messageContent = messageContent.replaceAll("&[0-9a-fk-or]", "");
                     }
                     
-                    // Prefix her zaman renk içerebilir
                     String formattedResponse = ChatColor.translateAlternateColorCodes('&', 
                         pluginConfig.getChatPrefix() + messageContent);
                     
                     if (pluginConfig.isBroadcastResponses()) {
-                        // Tüm sunucuya mesajı gönder
                         Bukkit.broadcastMessage(formattedResponse);
                     } else {
-                        // Sadece komutu kullanan oyuncuya gönder
                         player.sendMessage(formattedResponse);
                     }
                 },
